@@ -8,8 +8,8 @@
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -24,7 +24,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Cocos2dx打包游戏的jsc文件解密">
 <meta property="og:url" content="http://example.com/2021/04/13/%E5%85%B3%E4%BA%8ECocos2dx%E6%89%93%E5%8C%85%E6%B8%B8%E6%88%8F%E7%9A%84jsc%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86/index.html">
-<meta property="og:site_name" content="SunriseAttack的小屋">
+<meta property="og:site_name" content="胖头小🍊">
 <meta property="og:description" content="前言对于Cocos2dx打包的游戏就不必多说，我们在修改游戏中，经常会碰到后缀为jsc的文件，这是基于cocos2d开发的游戏的加密代码，本质上是js文件，只是被加密了。 所以如果我们想了解一个jsc游戏的逻辑，就需要将它解密。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/04/14/DW5F9Zach1EsmeR.png">
@@ -53,7 +53,7 @@
 <script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;04&#x2F;13&#x2F;%E5%85%B3%E4%BA%8ECocos2dx%E6%89%93%E5%8C%85%E6%B8%B8%E6%88%8F%E7%9A%84jsc%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;04&#x2F;13&#x2F;关于Cocos2dx打包游戏的jsc文件解密&#x2F;&quot;,&quot;title&quot;:&quot;关于Cocos2dx打包游戏的jsc文件解密&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>关于Cocos2dx打包游戏的jsc文件解密 | SunriseAttack的小屋</title><script src="/js/config.js"></script>
+<title>关于Cocos2dx打包游戏的jsc文件解密 | 胖头小🍊</title><script src="/js/config.js"></script>
   
 
 
@@ -83,7 +83,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">SunriseAttack的小屋</h1>
+      <h1 class="site-title">胖头小🍊</h1>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">胡乱一写,记录点滴</p>
@@ -102,8 +102,8 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -204,6 +204,9 @@
         <a href="https://weibo.com/u/5866457598" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5866457598" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
   </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
 
@@ -247,7 +250,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SunriseAttack的小屋">
+      <meta itemprop="name" content="胖头小🍊">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -335,22 +338,21 @@
     
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div>谢谢您请我吃糖</div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.png" alt="Surise Attack 微信">
-        <span>微信</span>
-      </div>
-      <div>
-        <img src="/images/alipay.png" alt="Surise Attack 支付宝">
-        <span>支付宝</span>
-      </div>
+          
 
-  </div>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Surise Attack
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2021/04/13/%E5%85%B3%E4%BA%8ECocos2dx%E6%89%93%E5%8C%85%E6%B8%B8%E6%88%8F%E7%9A%84jsc%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86/" title="关于Cocos2dx打包游戏的jsc文件解密">http://example.com/2021/04/13/关于Cocos2dx打包游戏的jsc文件解密/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
           <div class="post-tags">
@@ -384,9 +386,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Surise Attack</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
     </div>
   </footer>
@@ -411,3 +411,5 @@
 
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
