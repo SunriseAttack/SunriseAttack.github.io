@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>关于Cocos2dx打包游戏的jsc文件解密</title>
+    <url>/2021/04/13/%E5%85%B3%E4%BA%8ECocos2dx%E6%89%93%E5%8C%85%E6%B8%B8%E6%88%8F%E7%9A%84jsc%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>对于<strong>Cocos2dx</strong>打包的游戏就不必多说，我们在修改游戏中，经常会碰到后缀为<strong>jsc</strong>的文件，这是基于cocos2d开发的游戏的加密代码，本质上是<strong>js</strong>文件，只是被加密了。</p>
+<p>所以如果我们想了解一个jsc游戏的逻辑，就需要将它解密。</p>
+<span id="more"></span>
+
+<p>最近，在碰到相关的jsc游戏后，了解了相关知识后，对其解密过程有了熟悉，所以就分享下思路吧，有什么问题欢迎各位交流。</p>
+<p><a href="https://beisheng.lanzous.com/iHDeWeb6b7e">解密工具下载</a></p>
+<hr>
+<h2 id="解密过程"><a href="#解密过程" class="headerlink" title="解密过程"></a><strong>解密过程</strong></h2><p>游戏例子这里就不在提供。</p>
+<p>打开游戏安装包/assets/src/，看到加密过的<strong>project.jsc</strong>文件（案例游戏逻辑代码）。</p>
+<p><img src="https://i.loli.net/2021/04/14/DW5F9Zach1EsmeR.png" alt="找到游戏逻辑所在的文件"></p>
+<p>以文本格式打开，发现无法阅读和修改。</p>
+<p><img src="https://i.loli.net/2021/04/14/j62idhTO7sLcRxA.jpg" alt="解密前的jsc文件"></p>
+<p><strong>下面开始解密：</strong></p>
+<p>将解密工具解压至C盘目录下并将project.jsc文件拷贝至该文件夹下（为使用方便，我这里将解压后的文件夹命名为a）。</p>
+<p><img src="https://i.loli.net/2021/04/14/FEvoZOXhJ5MRTx8.png" alt="解压解密工具并拷贝解密文件"></p>
+<p>我们可以双击decrypt.exe了解我们需要的参数，该窗口可以关闭。</p>
+<p><img src="https://i.loli.net/2021/04/14/DpiYSlodub23HPv.png" alt="需要的参数"></p>
+<p>获取key的话，可以用16进制打开安装包lib目录下的libcocos2djs.so文件，搜索Ascii字符串<strong>Cocos Game</strong>，其后面的第15个字节开始就是key了，如下图：</p>
+<p><img src="https://i.loli.net/2021/04/14/Tuz2Ng83ODHLxd4.png" alt="获取Key参数"></p>
+<p>调出我们的命令提示符cmd，首先切换到我们的工具路径（a文件夹下）。</p>
+<p><img src="https://i.loli.net/2021/04/14/H9vzptNyFVCjUGA.png" alt="切换至工具目录"></p>
+<p>我们要解密project.jsc，就输入<code>decrypt -pw xxxxxxx -f project.jsc</code>，参数的解释上面已给出。</p>
+<p>这里就是<code>decrypt -pw bandoubb123123 -f project.jsc</code>，回车执行命令。</p>
+<p><img src="https://i.loli.net/2021/04/14/SRYn5pgbVArTNcF.jpg" alt="解密过程"></p>
+<p>返回我们的解压工具文件夹，可以看到多了一个project.js文件：</p>
+<p><img src="https://i.loli.net/2021/04/14/NVLrys5f9KPAud8.png" alt="解密完成"></p>
+<p>用文本工具打开解密后获得的js文件：</p>
+<p><img src="https://i.loli.net/2021/04/14/Or4CBPwfuQG2lDN.jpg" alt="解密后的文件"></p>
+<p>出现了可以正常阅读的游戏代码，解密结束。</p>
+<hr>
+<h2 id="几点提示"><a href="#几点提示" class="headerlink" title="几点提示"></a><strong>几点提示</strong></h2><ul>
+<li>解密需要1~2秒;</li>
+<li>显示解密失败（decrypt failed）的一般都是密钥问题，也有些是版本不对的;</li>
+<li>Cocos 1.9.3之前的版本可能不支持;</li>
+<li>解密后的js文件直接替换原来的jsc文件，重新打包安装包即可，不需要重新加密为jsc文件。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>原创</category>
+      </categories>
+      <tags>
+        <tag>Cocos2dx</tag>
+        <tag>游戏逆向</tag>
+        <tag>解密</tag>
+      </tags>
+  </entry>
+</search>

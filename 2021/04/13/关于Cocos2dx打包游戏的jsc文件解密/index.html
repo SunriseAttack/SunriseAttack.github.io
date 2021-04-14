@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script>
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
 <meta name="description" content="前言对于Cocos2dx打包的游戏就不必多说，我们在修改游戏中，经常会碰到后缀为jsc的文件，这是基于cocos2d开发的游戏的加密代码，本质上是js文件，只是被加密了。 所以如果我们想了解一个jsc游戏的逻辑，就需要将它解密。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Cocos2dx打包游戏的jsc文件解密">
@@ -27,13 +27,23 @@
 <meta property="og:site_name" content="SunriseAttack的小屋">
 <meta property="og:description" content="前言对于Cocos2dx打包的游戏就不必多说，我们在修改游戏中，经常会碰到后缀为jsc的文件，这是基于cocos2d开发的游戏的加密代码，本质上是js文件，只是被加密了。 所以如果我们想了解一个jsc游戏的逻辑，就需要将它解密。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/DW5F9Zach1EsmeR.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/j62idhTO7sLcRxA.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/FEvoZOXhJ5MRTx8.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/DpiYSlodub23HPv.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/Tuz2Ng83ODHLxd4.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/H9vzptNyFVCjUGA.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/SRYn5pgbVArTNcF.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/NVLrys5f9KPAud8.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/14/Or4CBPwfuQG2lDN.jpg">
 <meta property="article:published_time" content="2021-04-13T15:50:05.000Z">
-<meta property="article:modified_time" content="2021-04-13T15:54:15.024Z">
+<meta property="article:modified_time" content="2021-04-14T03:53:55.238Z">
 <meta property="article:author" content="Surise Attack">
 <meta property="article:tag" content="Cocos2dx">
 <meta property="article:tag" content="游戏逆向">
 <meta property="article:tag" content="解密">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/04/14/DW5F9Zach1EsmeR.png">
 
 
 <link rel="canonical" href="http://example.com/2021/04/13/%E5%85%B3%E4%BA%8ECocos2dx%E6%89%93%E5%8C%85%E6%B8%B8%E6%88%8F%E7%9A%84jsc%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86/">
@@ -150,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">解密过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E7%82%B9%E6%8F%90%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">几点提示</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">解密过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E7%82%B9%E6%8F%90%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">几点提示</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,6 +178,12 @@
           <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
@@ -245,9 +261,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-04-13 23:50:05 / 修改时间：23:54:15" itemprop="dateCreated datePublished" datetime="2021-04-13T23:50:05+08:00">2021-04-13</time>
+      <time title="创建时间：2021-04-13 23:50:05" itemprop="dateCreated datePublished" datetime="2021-04-13T23:50:05+08:00">2021-04-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-04-14 11:53:55" itemprop="dateModified" datetime="2021-04-14T11:53:55+08:00">2021-04-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8E%9F%E5%88%9B/" itemprop="url" rel="index"><span itemprop="name">原创</span></a>
+        </span>
     </span>
 
   
@@ -260,14 +291,43 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>对于Cocos2dx打包的游戏就不必多说，我们在修改游戏中，经常会碰到后缀为jsc的文件，这是基于cocos2d开发的游戏的加密代码，本质上是js文件，只是被加密了。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>对于<strong>Cocos2dx</strong>打包的游戏就不必多说，我们在修改游戏中，经常会碰到后缀为<strong>jsc</strong>的文件，这是基于cocos2d开发的游戏的加密代码，本质上是<strong>js</strong>文件，只是被加密了。</p>
 <p>所以如果我们想了解一个jsc游戏的逻辑，就需要将它解密。</p>
 <span id="more"></span>
 
 <p>最近，在碰到相关的jsc游戏后，了解了相关知识后，对其解密过程有了熟悉，所以就分享下思路吧，有什么问题欢迎各位交流。</p>
-<p>工具下载地址:<a target="_blank" rel="noopener" href="https://beisheng.lanzous.com/iHDeWeb6b7e">https://beisheng.lanzous.com/iHDeWeb6b7e</a></p>
-<p>游戏例子这里就不在提供。</p>
-<h1 id="解密过程"><a href="#解密过程" class="headerlink" title="解密过程"></a><strong>解密过程</strong></h1><h1 id="几点提示"><a href="#几点提示" class="headerlink" title="几点提示"></a><strong>几点提示</strong></h1>
+<p><a target="_blank" rel="noopener" href="https://beisheng.lanzous.com/iHDeWeb6b7e">解密工具下载</a></p>
+<hr>
+<h2 id="解密过程"><a href="#解密过程" class="headerlink" title="解密过程"></a><strong>解密过程</strong></h2><p>游戏例子这里就不在提供。</p>
+<p>打开游戏安装包/assets/src/，看到加密过的<strong>project.jsc</strong>文件（案例游戏逻辑代码）。</p>
+<p><img src="https://i.loli.net/2021/04/14/DW5F9Zach1EsmeR.png" alt="找到游戏逻辑所在的文件"></p>
+<p>以文本格式打开，发现无法阅读和修改。</p>
+<p><img src="https://i.loli.net/2021/04/14/j62idhTO7sLcRxA.jpg" alt="解密前的jsc文件"></p>
+<p><strong>下面开始解密：</strong></p>
+<p>将解密工具解压至C盘目录下并将project.jsc文件拷贝至该文件夹下（为使用方便，我这里将解压后的文件夹命名为a）。</p>
+<p><img src="https://i.loli.net/2021/04/14/FEvoZOXhJ5MRTx8.png" alt="解压解密工具并拷贝解密文件"></p>
+<p>我们可以双击decrypt.exe了解我们需要的参数，该窗口可以关闭。</p>
+<p><img src="https://i.loli.net/2021/04/14/DpiYSlodub23HPv.png" alt="需要的参数"></p>
+<p>获取key的话，可以用16进制打开安装包lib目录下的libcocos2djs.so文件，搜索Ascii字符串<strong>Cocos Game</strong>，其后面的第15个字节开始就是key了，如下图：</p>
+<p><img src="https://i.loli.net/2021/04/14/Tuz2Ng83ODHLxd4.png" alt="获取Key参数"></p>
+<p>调出我们的命令提示符cmd，首先切换到我们的工具路径（a文件夹下）。</p>
+<p><img src="https://i.loli.net/2021/04/14/H9vzptNyFVCjUGA.png" alt="切换至工具目录"></p>
+<p>我们要解密project.jsc，就输入<code>decrypt -pw xxxxxxx -f project.jsc</code>，参数的解释上面已给出。</p>
+<p>这里就是<code>decrypt -pw bandoubb123123 -f project.jsc</code>，回车执行命令。</p>
+<p><img src="https://i.loli.net/2021/04/14/SRYn5pgbVArTNcF.jpg" alt="解密过程"></p>
+<p>返回我们的解压工具文件夹，可以看到多了一个project.js文件：</p>
+<p><img src="https://i.loli.net/2021/04/14/NVLrys5f9KPAud8.png" alt="解密完成"></p>
+<p>用文本工具打开解密后获得的js文件：</p>
+<p><img src="https://i.loli.net/2021/04/14/Or4CBPwfuQG2lDN.jpg" alt="解密后的文件"></p>
+<p>出现了可以正常阅读的游戏代码，解密结束。</p>
+<hr>
+<h2 id="几点提示"><a href="#几点提示" class="headerlink" title="几点提示"></a><strong>几点提示</strong></h2><ul>
+<li>解密需要1~2秒;</li>
+<li>显示解密失败（decrypt failed）的一般都是密钥问题，也有些是版本不对的;</li>
+<li>Cocos 1.9.3之前的版本可能不支持;</li>
+<li>解密后的js文件直接替换原来的jsc文件，重新打包安装包即可，不需要重新加密为jsc文件。</li>
+</ul>
+
     </div>
 
     
