@@ -3055,3 +3055,22 @@ mark.search-keyword {
     padding: 10px 12px;
   }
 }
+#自定义修改,
+body {
+  background: url("/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+.header-inner {
+  opacity: 0.85;
+}
+.sidebar {
+  transition-duration: 0.4s;
+  opacity: 0.85;
+}
+.content {
+  padding-top: 15px;
+  opacity: 0.9;
+}
