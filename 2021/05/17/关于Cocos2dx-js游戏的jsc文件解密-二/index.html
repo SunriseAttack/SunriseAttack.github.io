@@ -20,16 +20,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;sunriseattack.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="前言上一期关于Cocos2dx-js游戏的jsc文件解密教程后，有一些同学似乎遇到了一些新的问题，下面列举一些：  利用ASCII字符串Cocos Game来定位解密密匙在有些游戏中似乎行不通 拿到了正确的Key后，利用解密工具解出来依然是乱码 解密后的js文件能不能重新加密为jsc格式的文件然后打包回去 解密的密匙还能在哪里获取 ······">
+<meta name="description" content="前言上一期关于Cocos2dx-js游戏的jsc文件解密教程后，有一些同学似乎遇到了一些新的问题，下面列举一些：  利用ASCII字符串Cocos Game来定位解密密匙在有些游戏中似乎行不通； 拿到了正确的Key后，利用解密工具解出来依然是乱码； 解密后的js文件用不用重新加密为jsc格式的文件然后打包回去； 解密的密匙还能在哪里获取； ······">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Cocos2dx-js游戏的jsc文件解密(二)">
 <meta property="og:url" content="https://sunriseattack.github.io/2021/05/17/%E5%85%B3%E4%BA%8ECocos2dx-js%E6%B8%B8%E6%88%8F%E7%9A%84jsc%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86-%E4%BA%8C/index.html">
 <meta property="og:site_name" content="胖头小橙子">
-<meta property="og:description" content="前言上一期关于Cocos2dx-js游戏的jsc文件解密教程后，有一些同学似乎遇到了一些新的问题，下面列举一些：  利用ASCII字符串Cocos Game来定位解密密匙在有些游戏中似乎行不通 拿到了正确的Key后，利用解密工具解出来依然是乱码 解密后的js文件能不能重新加密为jsc格式的文件然后打包回去 解密的密匙还能在哪里获取 ······">
+<meta property="og:description" content="前言上一期关于Cocos2dx-js游戏的jsc文件解密教程后，有一些同学似乎遇到了一些新的问题，下面列举一些：  利用ASCII字符串Cocos Game来定位解密密匙在有些游戏中似乎行不通； 拿到了正确的Key后，利用解密工具解出来依然是乱码； 解密后的js文件用不用重新加密为jsc格式的文件然后打包回去； 解密的密匙还能在哪里获取； ······">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/05/24/bkChvPD12FpItTY.png">
 <meta property="og:image" content="https://i.loli.net/2021/05/25/F9r3NqaYmWxLdz8.png">
 <meta property="og:image" content="https://i.loli.net/2021/05/25/rHu2dXaPs9FBK7h.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/30/PIhfe867zYZkjqT.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/30/pYolcxA34CumLO9.png">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/c1EuZsdAqOGH9hx.png">
 <meta property="og:image" content="https://i.loli.net/2021/05/25/P8I2w4TktFsZMeL.png">
 <meta property="og:image" content="https://i.loli.net/2021/05/25/lizos5YmI8BaRPu.png">
@@ -48,7 +50,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/05/29/Q1bNckv4rUfEpdx.png">
 <meta property="og:image" content="https://i.loli.net/2021/05/29/FuHqP9416a3e8Ez.png">
 <meta property="article:published_time" content="2021-05-17T15:01:20.000Z">
-<meta property="article:modified_time" content="2021-05-29T15:23:49.264Z">
+<meta property="article:modified_time" content="2021-05-30T06:08:58.286Z">
 <meta property="article:author" content="Surise Attack">
 <meta property="article:tag" content="Cocos2dx">
 <meta property="article:tag" content="游戏逆向">
@@ -285,7 +287,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-29 23:23:49" itemprop="dateModified" datetime="2021-05-29T23:23:49+08:00">2021-05-29</time>
+        <time title="修改时间：2021-05-30 14:08:58" itemprop="dateModified" datetime="2021-05-30T14:08:58+08:00">2021-05-30</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -305,7 +307,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3k</span>
+      <span>3.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -325,22 +327,24 @@
     <div class="post-body" itemprop="articleBody">
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一期关于Cocos2dx-js游戏的jsc文件解密教程后，有一些同学似乎遇到了一些新的问题，下面列举一些：</p>
 <ul>
-<li>利用ASCII字符串Cocos Game来定位解密密匙在有些游戏中似乎行不通</li>
-<li>拿到了正确的Key后，利用解密工具解出来依然是乱码</li>
-<li>解密后的js文件能不能重新加密为jsc格式的文件然后打包回去</li>
-<li>解密的密匙还能在哪里获取</li>
+<li>利用ASCII字符串Cocos Game来定位解密密匙在有些游戏中似乎行不通；</li>
+<li>拿到了正确的Key后，利用解密工具解出来依然是乱码；</li>
+<li>解密后的js文件用不用重新加密为jsc格式的文件然后打包回去；</li>
+<li>解密的密匙还能在哪里获取；</li>
 <li>······</li>
 </ul>
 <span id="more"></span>
 
 <p>诸如此类的问题很多，希望看了下面的一些简单分析能为大家提供一些答案。</p>
-<h2 id="初步分析"><a href="#初步分析" class="headerlink" title="初步分析"></a>初步分析</h2><p>研究逆向先看正向，从官网上下载CocosCreator开发工具，使用案例工程尝试构建编译，在构建发布页面很清楚的看到了脚本加密选项。</p>
+<h2 id="初步分析"><a href="#初步分析" class="headerlink" title="初步分析"></a>初步分析</h2><p>研究逆向先看正向，从官网上下载CocosCreator开发工具，使用案例js工程尝试构建编译，在构建发布页面很清楚的看到了脚本加密选项。</p>
 <p><img src="https://i.loli.net/2021/05/24/bkChvPD12FpItTY.png" alt="密匙选项"></p>
-<p>按流程构建编译后得到简单的样本APK。关于APK内个文件夹的作用和内容，这里不在多说，感兴趣的同学可以下载Cocos2dx源码进行分析。</p>
+<p>按流程构建编译后得到简单的样本APK。关于APK内各个文件夹的作用和内容，这里不在多说，感兴趣的同学可以结合Cocos2dx源码进行分析。</p>
 <p><img src="https://i.loli.net/2021/05/25/F9r3NqaYmWxLdz8.png" alt="样本APK的jsc文件结构"></p>
-<p>先拿样本APK做简单的分析，先用Jadx-gui去java层稍微读下源码，了解下assets下二进制源代码的加载情况，在入口Cocos2dxActivity处我们看到有一个onLoadNativeLibraries函数，跳转到其声明发现加载了一个叫android.app.lib_name的字符串资源。</p>
+<p>先拿样本APK做简单的分析，先用Jadx-gui去java层稍微读下源码，了解下assets目录下二进制源代码的加载情况，在入口Cocos2dxActivity处我们看到有一个onLoadNativeLibraries函数，跳转到其声明发现加载了一个叫android.app.lib_name的字符串资源。</p>
 <p><img src="https://i.loli.net/2021/05/25/rHu2dXaPs9FBK7h.png" alt="Coscos2dxActivity入口处"></p>
-<p>在AndroidManifest.xml下找到其定义为cocos2djs，即加载了libcocos2djs.so。</p>
+<p><img src="https://i.loli.net/2021/05/30/PIhfe867zYZkjqT.png" alt="加载声明"></p>
+<p>在AndroidManifest.xml下找到其定义为cocos2djs，即加载了libcocos2djs.so文件。</p>
+<p><img src="https://i.loli.net/2021/05/30/pYolcxA34CumLO9.png" alt="xml文件中的定义"></p>
 <p>明确了加载Assets目录资源的操作大概率不在java层后，再结合非虫前辈的“jsc反编译工具编写探索之路”，研究对象随即转移到libcocos2djs.so上。</p>
 <h2 id="构建过程"><a href="#构建过程" class="headerlink" title="构建过程"></a>构建过程</h2><p>通过阅读Cocos2dx源码发现，其脚本加解密用的就是xxtea加密和解密(和Cocos2dx-lua加解密相似)。进而结合CocosCreator了解到其构建项目的过程为：</p>
 <ol>
@@ -355,16 +359,16 @@
 <li>如果勾选“Zip 压缩”选项，进行解压缩</li>
 <li>调用js代码</li>
 </ol>
-<h2 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h2><p>通过以上初步分析和构建过程的了解，怎么去获得Key值似乎就有些思路了。这里用两个案例做分析，某Tap平台可下载：</p>
+<h2 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h2><p>通过以上初步分析和构建过程的了解，怎么去获得Key值似乎就有些思路了。这里用两个游戏案例做分析，某Tap平台可下载：</p>
 <ul>
 <li>某书院模拟器（A）</li>
 <li>某公传承（B）</li>
 </ul>
 <p>先拿游戏A分析，按上个帖子中的方法把安装包lib目录下的libcocos2djs.so拖进十六进制编辑器，搜索ASCII字符串:Cocos Game,结果没有搜索到相关信息。</p>
 <p><img src="https://i.loli.net/2021/05/27/c1EuZsdAqOGH9hx.png" alt="Cocos Game定位Key失效"></p>
-<p>直接上IDA打开libcocos2djs.so，导出函数名很整洁看起来没有加什么奇怪的东西，搜索xxtea / key之类的函数名得到这几个相关函数：</p>
+<p>直接上IDA分析libcocos2djs.so文件，导出函数名很整洁看起来没有加什么奇怪的东西，说明没有做一些安全手段。搜索xxtea / key之类的函数名得到这几个相关函数：</p>
 <p><img src="https://i.loli.net/2021/05/25/P8I2w4TktFsZMeL.png" alt="游戏A的so层关键函数"></p>
-<p>先尝试直接在so层寻找Key，函数jsb_set_xxtea_key看着简单，似乎直接设置了key，去看看有没有明文的Key值，F5伪代码看下，传入了一个字符串化的指针参数，大概率可能是Key。</p>
+<p>先尝试直接在so层寻找明文的Key，函数jsb_set_xxtea_key看着简单，似乎直接设置了key，去看看有没有希望的Key值。F5伪代码看下，传入了一个字符串化的指针参数，大概率可能是Key。</p>
 <p><img src="https://i.loli.net/2021/05/25/lizos5YmI8BaRPu.png" alt="jsb_set_xxtea_key函数"></p>
 <p>回溯调用该函数的地方，看下传入的参数值。</p>
 <p><img src="https://i.loli.net/2021/05/25/DGUiMXaewgmzuxp.png" alt="A-applicationDidFinishLaunching函数"></p>
@@ -374,7 +378,7 @@
 <p><img src="https://i.loli.net/2021/05/25/TMQteldCV1yipxs.png" alt="游戏B的so层关键函数"></p>
 <p>同样，回溯关键函数jsb_set_xxtea_key同样来到了applicationDidFinishLaunching这个函数内，但似乎这次Key值（关键参数v10）不像游戏A中那样明文显示出来</p>
 <p><img src="https://i.loli.net/2021/05/25/onxW8vQFS3K7Rs1.png" alt="B-applicationDidFinishLaunching函数"></p>
-<p>去附近的字符串看看有什么可疑的，双击jsb-adapter/jsb-builtin.js</p>
+<p>去附近的字符串看看有什么可疑的，双击jsb-adapter/jsb-builtin.js字符串。</p>
 <p><img src="https://i.loli.net/2021/05/25/VMEshj7PvGWmxXf.png" alt="B-附近字符串"></p>
 <p>却看到了可疑的Key值和常规的Cocos Game，再尝试拿这个Key值去解密，同样的解密成功。</p>
 <p>此时返回游戏A中的同一位置，观察密匙附近的字符串。对比下，似乎只有main.js这一个相同的地方，并且都在applicationDidFinishLaunching函数内部，或许是新的找Key值的关键？大家日后可以试试。</p>
@@ -382,29 +386,30 @@
 <p>同时两个游戏的密匙都在函数applicationDidFinishLaunching中所体现出来，这就不得不促使我们了解下该函数。阅读下相关源码，了解到在一个Cocos2d-x的应用入口中，当应用环境加载完成会回调以下方法：</p>
 <p><img src="https://i.loli.net/2021/05/25/h64GYagTUtNXfiH.png" alt="applicationDidFinishLaunching函数"></p>
 <p>此时再结合CocosCreator构建项目的过程就不难理解了，当游戏应用环境加载完毕后，该函数内把Key值传入到解密的函数中去，进而解密函数将jsc文件化为js文件，并拷贝到内存中去，游戏开始调用js文件，进入游戏界面。</p>
-<h2 id="其他关键函数的分析"><a href="#其他关键函数的分析" class="headerlink" title="其他关键函数的分析"></a>其他关键函数的分析</h2><p>以上的实例分析只是拿似乎简单的jsb_set_xxtea_key函数入手，当然也可以拿其他的关键函数入手，依然拿游戏A举例。去其他相关函数看下，在xxtea_decrypt这个函数里看到有memcpy和memclr操作，很像在开内存拷贝数据</p>
+<h2 id="其他关键函数的分析"><a href="#其他关键函数的分析" class="headerlink" title="其他关键函数的分析"></a>其他关键函数的分析</h2><p>以上的实例分析只是拿简单的jsb_set_xxtea_key函数入手，当然也可以拿其他的关键函数入手，依然拿游戏A举例。去其他相关函数看下，在xxtea_decrypt这个函数里看到有memcpy和memset操作，很像在开内存拷贝数据， </p>
 <p><img src="https://i.loli.net/2021/05/29/yYIoZQhw8GLgD5S.png" alt="xxtea_decrypt函数"></p>
 <p>并且do_xxtea_decrypt这个函数里大量的计算很像解密算法，</p>
 <p><img src="https://i.loli.net/2021/05/29/A98S5fYloy4hi3R.png" alt="do_xxtea_decrypt函数"></p>
 <p>再结合CocosCreator源代码<a target="_blank" rel="noopener" href="https://github.com/cocos-creator/engine-native/blob/f4a387d614691101c79ef75d1dbce705c834cad3/cocos/scripting/js-bindings/manual/jsb_global.cpp#L181">jsb_global.cpp</a>，就不难知道传入xxtea_decrypt函数的参数中，第三个参数即为解密的Key值。</p>
 <p><img src="https://i.loli.net/2021/05/29/dM3pFUePcngjShl.png"></p>
-<p>所以当下考虑直接在游戏运行时Hook这个函数打印出key，由于是Native层，所以这里用简单的Frida脚本来Hook，关于Frida框架的使用这里就不说了，再说就多了emm······</p>
+<p>所以当下考虑直接在游戏运行时Hook这个函数打印出key值，由于是Native层，所以这里用简单的Frida脚本来Hook，关于Frida框架的使用这里就不说了，再说就多了emm······</p>
 <p>adb连接测试机，终端输入 frida-ps -U 查看当前手机上的进程，以测试是否连通；</p>
 <p><img src="https://i.loli.net/2021/05/29/w1uSdPKiC2RFzMW.png" alt="Frida连接测试"></p>
 <p>接着编写一个简单的js脚本，当libcocos2djs.so文件加载时，直接hook xxtea_decrypt函数：</p>
 <p><img src="https://i.loli.net/2021/05/29/xXqkHYeGNDLroIE.png" alt="hook脚本"></p>
-<p>终端输入frida -U -f 包名 -l key.js –no-pause，拉起对应app进行hook，此时游戏会重新启动，并加载运行游戏需要的环境，保持运行。</p>
+<p>终端输入frida -U -f 包名 -l key.js –no-pause，拉起对应app进行hook，此时游戏会重新启动，重新加载运行游戏需要的环境，并保持运行。</p>
 <p><img src="https://i.loli.net/2021/05/29/Q1bNckv4rUfEpdx.png" alt="hook拿到Key值"></p>
 <p>成功拿到了Key值，接下来就可以解密分析相关文件了。</p>
 <h2 id="关于解密工具"><a href="#关于解密工具" class="headerlink" title="关于解密工具"></a>关于解密工具</h2><p>其实拿到Key值后，解密的逻辑直接参照CocosCreator源代码xxtea_decrypt部分，抄一份对应实现即可，自己也尝试写了一份，但操作较为繁琐，对不同的Cocos2dx版本有不同的处理。同时在不同的机子上测试也得到了不同的结果emm···还没有时间进行修复，当然后面有时间改完封装也会拿出来供大家测试的。</p>
-<p>另外，也在一些论坛上上寻找了一些封装好的加解密程序，比如<a target="_blank" rel="noopener" href="https://beisheng.lanzoui.com/iSxKhplgnch">jsc解密v1.44</a>似乎能满足现在Cocos2dx版本的文件加解密，操作也较为简单，大家可以尝试食用。</p>
-<p><img src="https://i.loli.net/2021/05/29/FuHqP9416a3e8Ez.png"></p>
+<p>另外，也在一些论坛上也寻找了一些封装好的加解密程序，比如<a target="_blank" rel="noopener" href="https://beisheng.lanzoui.com/iSxKhplgnch">jsc解密v1.44</a>，似乎能满足现在Cocos2dx版本的文件加解密，操作也较为简单，大家可以尝试食用。</p>
+<p><img src="https://i.loli.net/2021/05/29/FuHqP9416a3e8Ez.png" alt="加解密工具"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>常规在libcocos2djs.so文件中搜索Ascil字符串“Cocos Game”、“main,js”、”jsb-adapter/jsb-builtin.js”等一些常规的普遍关键词来尝试定位Key。</li>
+<li>常规在libcocos2djs.so文件中搜索Ascil字符串“Cocos Game”、“main.js”、”jsb-adapter/jsb-builtin.js”等一些常规的普遍关键词来尝试定位Key。</li>
 <li>如果无法寻得，就上IDA看下so文件做没做过加密混淆，没有的话就结合applicationDidFinishLaunching函数等来寻找明文的Key值，或者hook关键函数来打印Key值。</li>
 <li>当然，游戏做了一些混淆或者其他安全手段时就需要先处理其他加密了emm···</li>
-<li>另外，Cocos2dx-js引擎做的游戏在运行时会先检测内存里面有没有js文件，有的话就直接运行js文件，没有的话就从jsc转换出js文件，所以解密后的js文件直接丢入原包就行。当然，除了一些做了文件验证形式的安全手段。</li>
+<li>另外，Cocos2dx-js引擎做的游戏在运行时会先检测内存里面有没有js文件，有的话就直接运行js文件，没有的话就从jsc转换出js文件，所以解密后的js文件直接丢入原包就行。当然，除了一些做了文件验证形式的安全手段的游戏。</li>
 </ol>
+<p>好了，到这里基本的教程也已经结束了，大家有什么好的方法和见解也欢迎交流，谢谢大家。</p>
 
     </div>
 
@@ -482,7 +487,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3 分钟</span>
+    <span title="站点阅读时长">4 分钟</span>
   </span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
